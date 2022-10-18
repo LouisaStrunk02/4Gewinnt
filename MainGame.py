@@ -22,4 +22,3 @@ class MainGame:
         self.player1.symbol = "x"
         self.player2.name = self.getUserName("Player 2")
         self.player2.symbol = "o"
-
