@@ -1,4 +1,8 @@
-def main() -> None:
-    pass
+from MainGame import MainGame
 
-__name__ = '__main__'
+def main() -> None:
+    game = MainGame()
+    game.prepareGame()
+
+if __name__ == '__main__':
+    main()

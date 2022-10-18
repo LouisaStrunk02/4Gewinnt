@@ -1,4 +1,7 @@
+from unicodedata import name
+
+
 class Player:
     def __init__(self):
-        pass
-    
+        self.name: str
+        self.symbol: str
