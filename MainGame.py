@@ -11,8 +11,8 @@ class MainGame:
     def get_user_name(self, salutation: str) -> str:
          while True:
             user_name: str = input(f"{salutation}: Please enter your name: ")
-
             input_is_valid: bool = user_name.isalpha() and len(user_name) > 0
+            
             if input_is_valid:
                 return user_name
             else:
@@ -42,8 +42,8 @@ class MainGame:
         while True:
             try:
                 column_input = int(input(player_name + ", select a column to put your coin: "))
-
                 input_is_valid = 1 <= column_input <= 7
+                
                 if input_is_valid:
                     return column_input
                 else:
@@ -53,6 +53,7 @@ class MainGame:
 
     def round(self) -> None:
         self.turn_number += 1
+        
         if self.turn_number % 2 != 0:
             self.turn(self.player1)
         else:

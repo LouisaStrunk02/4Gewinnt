@@ -20,6 +20,7 @@ class Board:
         for line in self.board:
             for element in line:
                 print("|" + element, end="")
+                
             print("|")
 
     def is_valid_turn(self, column: int) -> bool:
