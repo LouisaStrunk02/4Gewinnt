@@ -8,7 +8,7 @@ class MainGame:
         self.board = Board()
 
     def get_user_name(self, salutation: str) -> str:
-         while True:
+        while True:
             user_name = input(f"{salutation}: Please enter your name: ")
 
             input_is_valid = user_name.isalpha() and len(user_name) > 0

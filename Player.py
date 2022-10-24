@@ -1,6 +1,3 @@
-from unicodedata import name
-
-
 class Player:
     def __init__(self):
         self.name: str
