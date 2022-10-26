@@ -9,7 +9,7 @@ class MainGame:
         self.turn_number = 0
 
     def get_user_name(self, salutation: str) -> str:
-         while True:
+        while True:
             user_name: str = input(f"{salutation}: Please enter your name: ")
             input_is_valid: bool = user_name.isalpha() and len(user_name) > 0
             
