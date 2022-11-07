@@ -11,7 +11,7 @@ class Board:
             [self.placeholder] * 7,
             [self.placeholder] * 7,
             [self.placeholder] * 7,
-            ["1", "2", "3", "4", "5", "6", "7"]
+            ["1", "2", "3", "4", "5", "6", "7"],
         ]
 
         return empty_board
@@ -20,7 +20,6 @@ class Board:
         for line in self.board:
             for element in line:
                 print("|" + element, end="")
-                
             print("|")
 
     def is_valid_turn(self, column: int) -> bool:
