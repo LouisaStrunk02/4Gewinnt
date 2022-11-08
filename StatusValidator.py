@@ -63,6 +63,5 @@ class StatusValidator:
         sequence_as_string = str.join("", sequence)
 
         is_win_sequence = win_sequence in sequence_as_string
-
+        
         return is_win_sequence
-    
