@@ -1,3 +1,4 @@
+from asyncio import constants
 from Player import Player
 from Board import Board
 from StatusValidator import StatusValidator
@@ -53,10 +54,11 @@ class MainGame:
                 print("Please enter an integer.")
 
     def round(self) -> None or Player:
+        anzahl_felder: constants = 42
         winner: Player
         self.turn_number += 1
 
-        if self.turn_number > 42:
+        if self.turn_number > anzahl_felder:
             return Player()
 
         if self.turn_number % 2 != 0:
