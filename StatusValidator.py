@@ -2,7 +2,7 @@ from Board import Board
 from Player import Player
 
 class StatusValidator:
-    def __inint__(self):
+    def __init__(self):
         pass
 
     def is_win(self, board: Board, player: Player) -> bool:
