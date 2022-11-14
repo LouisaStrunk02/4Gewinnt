@@ -5,7 +5,7 @@ class StatusValidator:
     def __inint__(self):
         pass
 
-    def is_win(board: Board, player: Player) -> bool:
+    def is_win(self, board: Board, player: Player) -> bool:
         is_horizontal_win = StatusValidator.horizontal_win(board,player)
         is_vertical_win = StatusValidator.vertical_win(board, player)
         is_diagonal_win = StatusValidator.diagonal_win(board, player)
