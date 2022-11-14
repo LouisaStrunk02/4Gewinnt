@@ -5,7 +5,8 @@ class StatusValidator:
     def __init__(self):
         pass
 
-    def is_win(self, board: Board, player: Player) -> bool:
+    @staticmethod
+    def is_win(board: Board, player: Player) -> bool:
         is_horizontal_win = StatusValidator.horizontal_win(board,player)
         is_vertical_win = StatusValidator.vertical_win(board, player)
         is_diagonal_win = StatusValidator.diagonal_win(board, player)
@@ -13,14 +14,16 @@ class StatusValidator:
 
         return is_win
 
-    def horizontal_win(self, board: Board, player: Player) -> bool:
+    @staticmethod
+    def horizontal_win(board: Board, player: Player) -> bool:
         for row in board.board:
             if StatusValidator.win_sequence(row, player.symbol):
                 return True
 
         return False
 
-    def vertical_win(self, board: Board, player: Player) -> bool:
+    @staticmethod
+    def vertical_win(board: Board, player: Player) -> bool:
         vertical_sequences: list[list[str]] = []
         number_of_columns = len(board.board[0])
 
@@ -37,7 +40,8 @@ class StatusValidator:
 
         return False
 
-    def diagonal_win(self, board: Board, player: Player) -> bool:
+    @staticmethod
+    def diagonal_win(board: Board, player: Player) -> bool:
         board_matrix: list[list[str]] = board.board
         symbol: str = player.symbol
 
@@ -58,7 +62,8 @@ class StatusValidator:
 
         return False
 
-    def win_sequence(self, sequence: list[str], player_symbol: str) -> bool:
+    @staticmethod
+    def win_sequence(sequence: list[str], player_symbol: str) -> bool:
         win_sequence = player_symbol * 4
         sequence_as_string = str.join("", sequence)
 
