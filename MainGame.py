@@ -2,6 +2,8 @@ from Player import Player
 from Board import Board
 from StatusValidator import StatusValidator
 
+ANZAHL_FELDER = 42
+
 class MainGame:
     def __init__(self):
         self.player1: Player = Player()
@@ -53,7 +55,6 @@ class MainGame:
                 print("Please enter an integer.")
 
     def round(self) -> None | Player:
-        ANZAHL_FELDER = 42
         winner: Player
         self.turn_number += 1
 
