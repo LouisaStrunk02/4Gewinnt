@@ -1,5 +1,8 @@
 from Player import Player
 from Board import Board
+from StatusValidator import StatusValidator
+
+ANZAHL_FELDER = 42
 
 class MainGame:
     def __init__(self):
@@ -32,8 +35,10 @@ class MainGame:
 
             if is_valid_turn:
                 self.board.add_coin_to_board(column, player.symbol)
-
-                return
+                player_is_winner = StatusValidator.is_win(self.board, player)
+                if player_is_winner:
+                    return player
+                break
             else:
                 print("You can't put a coin in column " + str(column) + ". Try again.")
 
@@ -49,13 +54,33 @@ class MainGame:
             except ValueError:
                 print("Please enter an integer.")
 
-    def round(self) -> None:
+    def round(self) -> None | Player:
+        winner: Player
         self.turn_number += 1
+
+        if self.turn_number > ANZAHL_FELDER:
+            return Player()
+
         if self.turn_number % 2 != 0:
-            self.turn(self.player1)
+            winner = self.turn(self.player1)
         else:
-            self.turn(self.player2)
+            winner = self.turn(self.player2)
+
+        if winner is not None:
+            return winner
 
     def play(self) -> None:
+        winner: Player
+
         while True:
-            self.round()
+            winner = self.round()
+
+            if winner is not None:
+                break
+
+        self.board.show_board()
+
+        if winner.name == "":
+            print("It's a tie!")
+        else:
+            print(winner.name + " wins the game! Congratulations")
